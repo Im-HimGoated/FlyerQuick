@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlyerQuick</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="controls" aria-label="Flyer controls">
+        <header class="brand-bar">
+          <div>
+            <p class="eyebrow">FlyerQuick</p>
+            <h1>Local flyers, fast.</h1>
+          </div>
+          <button id="exportBtn" class="primary-button" type="button">Export PDF</button>
+        </header>
+
+        <form class="editor" id="flyerForm">
+          <div class="field-grid">
+            <label>
+              Event title
+              <input id="titleInput" maxlength="54" value="Spring Club Fair">
+            </label>
+            <label>
+              Date and time
+              <input id="dateInput" maxlength="44" value="Friday, May 29 - 3:30 PM">
+            </label>
+            <label>
+              Location
+              <input id="locationInput" maxlength="48" value="West Hall Courtyard">
+            </label>
+            <label>
+              Call to action
+              <input id="ctaInput" maxlength="34" value="Bring a friend">
+            </label>
+          </div>
+
+          <label>
+            Details
+            <textarea id="detailsInput" maxlength="170">Meet student clubs, grab snacks, and find something new to join before summer.</textarea>
+          </label>
+
+          <div class="panel-row">
+            <fieldset>
+              <legend>Template</legend>
+              <div class="choice-grid" id="templateChoices">
+                <button class="choice is-active" type="button" data-template="club">Club</button>
+                <button class="choice" type="button" data-template="market">Market</button>
+                <button class="choice" type="button" data-template="volunteer">Volunteer</button>
+                <button class="choice" type="button" data-template="showcase">Showcase</button>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Palette</legend>
+              <div class="swatch-grid" id="paletteChoices" aria-label="Color palettes">
+                <button class="swatch is-active" type="button" data-palette="fresh" aria-label="Fresh palette"><span></span></button>
+                <button class="swatch" type="button" data-palette="civic" aria-label="Civic palette"><span></span></button>
+                <button class="swatch" type="button" data-palette="bright" aria-label="Bright palette"><span></span></button>
+                <button class="swatch" type="button" data-palette="ink" aria-label="Ink palette"><span></span></button>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="upload-row">
+            <label class="file-picker">
+              <span>Image</span>
+              <span class="file-control">
+                <span class="file-action">Choose image</span>
+                <span class="file-name" id="imageStatus">No image selected</span>
+              </span>
+              <input id="imageInput" class="sr-only" type="file" accept="image/*">
+            </label>
+            <button id="clearImageBtn" class="ghost-button" type="button">Clear image</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="preview-stage" aria-label="Flyer preview">
+        <article class="flyer template-club palette-fresh" id="flyer">
+          <div class="flyer-art" id="flyerArt">
+            <div class="art-pattern" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <img id="flyerImage" alt="">
+          </div>
+          <div class="flyer-copy">
+            <p class="flyer-kicker" id="flyerKicker">Community event</p>
+            <h2 id="flyerTitle">Spring Club Fair</h2>
+            <p class="flyer-details" id="flyerDetails">Meet student clubs, grab snacks, and find something new to join before summer.</p>
+            <dl class="flyer-meta">
+              <div>
+                <dt>When</dt>
+                <dd id="flyerDate">Friday, May 29 - 3:30 PM</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd id="flyerLocation">West Hall Courtyard</dd>
+              </div>
+            </dl>
+            <p class="flyer-cta" id="flyerCta">Bring a friend</p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
