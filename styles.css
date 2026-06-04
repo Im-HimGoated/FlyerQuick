@@ -203,8 +203,9 @@ legend {
   color: #49534e;
   border: 1px solid transparent;
   background: #eee9e1;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 850;
+  line-height: 1.05;
 }
 
 .choice.is-active {
@@ -215,7 +216,7 @@ legend {
 
 .swatch-grid {
   display: grid;
-  grid-template-columns: repeat(4, 42px);
+  grid-template-columns: repeat(auto-fit, 40px);
   gap: 10px;
 }
 
@@ -257,6 +258,22 @@ legend {
 
 .swatch[data-palette="ink"] span {
   background: conic-gradient(#202124 0 25%, #e8e2d1 0 50%, #2ca58d 0 75%, #ffbd59 0);
+}
+
+.swatch[data-palette="sunset"] span {
+  background: conic-gradient(#d94832 0 25%, #f6a43a 0 50%, #2b6f73 0 75%, #fff4e5 0);
+}
+
+.swatch[data-palette="garden"] span {
+  background: conic-gradient(#386641 0 25%, #a7c957 0 50%, #bc4749 0 75%, #f7f3df 0);
+}
+
+.swatch[data-palette="ocean"] span {
+  background: conic-gradient(#146c94 0 25%, #19a7ce 0 50%, #f6c85f 0 75%, #f5f0e8 0);
+}
+
+.swatch[data-palette="berry"] span {
+  background: conic-gradient(#5f0f40 0 25%, #9a031e 0 50%, #fb8b24 0 75%, #fff3da 0);
 }
 
 .upload-row {
@@ -321,8 +338,8 @@ legend {
   --paper: #fff8e9;
   --flyer-ink: #18211f;
   display: grid;
-  grid-template-rows: 42% 58%;
-  width: min(72vh, 100%);
+  grid-template-rows: 40% 60%;
+  width: min(100%, 560px, calc((100vh - 68px) * 8.5 / 11));
   max-width: 560px;
   aspect-ratio: 8.5 / 11;
   overflow: hidden;
@@ -356,6 +373,38 @@ legend {
   --accent-3: #ffbd59;
   --paper: #f3eee1;
   --flyer-ink: #202124;
+}
+
+.palette-sunset {
+  --accent: #d94832;
+  --accent-2: #2b6f73;
+  --accent-3: #f6a43a;
+  --paper: #fff4e5;
+  --flyer-ink: #251b16;
+}
+
+.palette-garden {
+  --accent: #386641;
+  --accent-2: #bc4749;
+  --accent-3: #a7c957;
+  --paper: #f7f3df;
+  --flyer-ink: #1d2718;
+}
+
+.palette-ocean {
+  --accent: #146c94;
+  --accent-2: #19a7ce;
+  --accent-3: #f6c85f;
+  --paper: #f5f0e8;
+  --flyer-ink: #15242d;
+}
+
+.palette-berry {
+  --accent: #5f0f40;
+  --accent-2: #9a031e;
+  --accent-3: #fb8b24;
+  --paper: #fff3da;
+  --flyer-ink: #24141f;
 }
 
 .flyer-art {
@@ -396,6 +445,7 @@ legend {
 .art-pattern {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 16px;
   padding: 30px;
 }
@@ -420,6 +470,7 @@ legend {
 
 .template-market .art-pattern {
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
   gap: 0;
   padding: 0;
 }
@@ -430,7 +481,8 @@ legend {
 }
 
 .template-volunteer .art-pattern {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
   align-items: center;
 }
 
@@ -440,11 +492,11 @@ legend {
 }
 
 .template-showcase .art-pattern {
-  grid-template-columns: 1.4fr 0.85fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .template-showcase .art-pattern span:nth-child(1) {
-  grid-row: span 2;
+  grid-row: auto;
 }
 
 .flyer-copy {
